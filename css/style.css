@@ -97,12 +97,6 @@ h1{
   cursor: pointer;
 }
 
-}
-
-button:active{
-  box-shadow: 0 0 0 0 #993300, inset 2px 2px 2px #993300;
-}
-
 .botao{
   background-color:#CE5D2F;
   color: #fff;
