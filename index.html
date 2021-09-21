@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!--Jquery-->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!--Meu CSS-->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <script src="script.js"></script>
+  <title>Onde se hospedar</title>
+</head>
+
+<body>
+  <!-- Modal -->
+  <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLoginTitulo">Fazer login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="LoginEmail">Email </label>
+              <input type="email" class="form-control" id="LoginEmail">
+            </div>
+            <div class="form-group">
+              <label for="loginSenha">Senha</label>
+              <input type="password" class="form-control" id="loginSenha">
+            </div>
+            <div class="form-group form-check">
+            </div>
+            <button type="button" class="btn botao btn-lg btn-block botao">Entrar</button>
+            <small class="form-text text-muted">Esqueceu a senha?<a href="#"> Clique aqui</a>.</small>
+            <small class="form-text text-muted">Ainda não tem um perfil no Traveller?<a href="#"> Crie
+                Agora</a>.</small>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Fecha do modal-->
+  <!--Início do menu-->
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark py-3"
+      style="background:linear-gradient(135deg, #182857, #084F8C, #54A4EA)" id="topo">
+      <a href="./index.htm" class="navbar-brand">
+        <img src="./images/logo-traveller-pequeno.svg" alt="Logo Traveller">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white m-1" href="#">Onde se hospedar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white m-1" href="#">Aluguel de carro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white m-1" href="#">Como chegar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white m-1" href="#">Dicas úteis</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white m-1 " href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">O que fazer</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Gastronomia</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Cultura</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Parques</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Vida noturna</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Entretenimento</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">História</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link botao text-white m-1  text-center px-3" href="#" data-toggle="modal"
+              data-target="#modalLogin">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!--Fim do menu-->
+  <div>
+    <img src="./images/onde-se-hospedar-topo.svg" class="card-img" alt="Ilustração de uma cidade">
+    <h1 class="text-center py-3">Onde se hospedar</h1>
+  </div>
+
+  <!--Início Buscador-->
+  <section class="container py-4 border pesquisa">
+    <div class="row g-3 py-3 ">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 py-2">
+        <input type="text" class="form-control" placeholder="Para onde você vai?" aria-label="Cidade">
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 py-2 ">
+        <input type="date" class="form-control" placeholder="Check-in" aria-label="Check-in">
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 py-2 ">
+        <input type="date" class="form-control" placeholder="Check-out" aria-label="Check-out">
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 py-2">
+        <select class="form-select form-control" name="numeroPessoas" id="numeroPessoas">
+          <option selected>Quantos hóspedes?</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 py-2">
+        <select class="form-select form-control" name="estiloViagem" id="estiloViagem">
+          <option selected>Qual o estilo da viagem?</option>
+          <option value="1">Ecoturismo</option>
+          <option value="2">Relax</option>
+          <option value="3">Em família</option>
+          <option value="4">Cultural</option>
+          <option value="5">Romântica</option>
+          <option value="6">Mochileiro</option>
+          <option value="7">Não sei</option>
+        </select>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 py-2">
+        <select class="form-select form-control" name="tipoHospedagem" id="tipoHospedagem">
+          <option selected>Qual tipo de hospedagem?</option>
+          <option value="1">Hotel</option>
+          <option value="2">Pousada</option>
+          <option value="3">Casa para temporada</option>
+          <option value="4">Hostel</option>
+          <option value="5">Todas</option>
+        </select>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 py-2">
+        <select class="form-select form-control" name="classificarPor" id="classificarPor">
+          <option selected>Classificar por</option>
+          <option value="1">Relevância</option>
+          <option value="2">Menor preço</option>
+          <option value="3">Avaliação</option>
+        </select>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 py-2">
+        <button type="submit" class="btn btn-primary busca_btn"><i class="fas fa-search"></i><strong>
+            Buscar</strong></button>
+      </div>
+      
+      <div class=" container row align-items-start">
+        <div class="py-3 col">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked">
+              <p>Encontrar opções perto de mim</p>
+          </div>
+    </div>
+    <div>
+      
+  </section>
+  <!--Fim do buscador-->
+  <!--Mapa com a localização do usuário-->
+  <section class="container my-3 text-center border secao_mapa">
+        <div class="row align-items-start">
+          <div class="col">
+            <p class="py-3 borda"><a class="title_expandir" href="#minhaGeolocalizacao" data-toggle="collapse"><i
+                  class="fas fa-map-marker-alt"></i> Ver minha
+                localização no mapa</a></p>
+            <div id="minhaGeolocalizacao" class="collapse">
+              <div class="container geolocalizacao align-items-start">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 py-2">
+                  <div class="container" id="coordenadas"></div>
+                  <div class="container" class="my-2" id="mapa"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+  </section>
+  <!--Fim de Mapa com a localização do usuário-->
+  <!--Início do Resultado da busca-->
+  <!--Início da section 1-->
+  <div class="container my-3">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card-body card_hotel shadow-sm p-3 mb-5 bg-body">
+          <img src="./images/melia-paulista (1).jpg" class="py-2 card-img-top" alt="Fachada do Meliá Paulista">
+          <div class="clearfix">
+            <span class="py-2 float-left">
+              <h5 class="card-title">Meliá Paulista</h5>
+            </span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right border"><i
+                class="far fa-bookmark"></i></span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right"><i class="far fa-heart"></i></span>
+          </div>
+          <p class="card-text">4,6 <i class="estrela fas fa-star"></i><a class="card-link" href="#"> (5.034
+              avaliações)</a>
+            <p class="blog-post-text"><i class="fas fa-bed"></i> 3 estrelas</p>
+            <p class="blog-post-text"><i class="fas fa-wifi"></i> wifi gratuito</p>
+            <p class="blog-post-text"><i class="fas fa-swimmer"></i> piscina coberta</p>
+            <p class="clearfix">
+              <span class="card-body float-left"><button type="button" class="px-4 btn btn-primary">Saiba
+                  mais</button></span>
+              <span class="card-body float-right blog-post-preco">R$416</span>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card-body card_hotel shadow-sm p-3 mb-5 bg-body">
+          <img src="./images/mercure-pinheiros.jpg" class="py-2 card-img-top" alt="Mercure Pinheiros">
+          <div class="clearfix">
+            <span class="py-2 float-left">
+              <h5 class="card-title">Mercure Pinheiros</h5>
+            </span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right border"><i
+                class="far fa-bookmark"></i></span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right"><i class="far fa-heart"></i></span>
+          </div>
+          <p class="card-text">3,6 <i class="estrela fas fa-star"></i><a class="card-link" href="#"> (5.034
+              avaliações)</a>
+            <p class="blog-post-text"><i class="fas fa-bed"></i> 3 estrelas</p>
+            <p class="blog-post-text"><i class="fas fa-wifi"></i> wifi gratuito</p>
+            <p class="blog-post-text"><i class="fas fa-swimmer"></i> piscina coberta</p>
+            <p class="clearfix">
+              <span class="card-body float-left"><button type="button" class="px-4 btn btn-primary">Saiba
+                  mais</button></span>
+              <span class="card-body float-right blog-post-preco">R$316</span>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card-body card_hotel shadow-sm p-3 mb-5 bg-body">
+          <img src="./images/holyday-anhembi.jpg" class="py-2 card-img-top" alt="Fachada Holiday Inn Anhembi">
+          <div class="clearfix">
+            <span class="py-2 float-left">
+              <h5 class="card-title">Holiday Inn Anhembi</h5>
+            </span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right border"><i
+                class="far fa-bookmark"></i></span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right"><i class="far fa-heart"></i></span>
+          </div>
+          <p class="card-text">4,6 <i class="estrela fas fa-star"></i><a class="card-link" href="http://"> (5.034
+              avaliações)</a>
+            <p class="blog-post-text"><i class="fas fa-bed"></i> 3 estrelas</p>
+            <p class="blog-post-text"><i class="fas fa-wifi"></i> wifi gratuito</p>
+            <p class="blog-post-text"><i class="fas fa-swimmer"></i> piscina coberta</p>
+            <p class="clearfix">
+              <span class="card-body float-left"><button type="button" class="px-4 btn btn-primary">Saiba
+                  mais</button></span>
+              <span class="card-body float-right blog-post-preco">R$300</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Início da section 2-->
+  <div class="container my-3">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card-body card_hotel shadow-sm p-3 mb-5 bg-body">
+          <img src="./images/bourbon-convention-ibirapuera.jpg" class="py-2 card-img-top"
+            alt="Fachada do Bourbon Convention Ibirapuera">
+          <div class="clearfix">
+            <span class="py-2 float-left">
+              <h5 class="card-title">Bourbon Ibirapuera</h5>
+            </span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right border"><i
+                class="far fa-bookmark"></i></span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right"><i class="far fa-heart"></i></span>
+          </div>
+          <p class="card-text">4,6 <i class="estrela fas fa-star"></i><a class="card-link" href="#"> (5.034
+              avaliações)</a>
+            <p class="blog-post-text"><i class="fas fa-bed"></i> 3 estrelas</p>
+            <p class="blog-post-text"><i class="fas fa-wifi"></i> wifi gratuito</p>
+            <p class="blog-post-text"><i class="fas fa-swimmer"></i> piscina coberta</p>
+            <p class="clearfix">
+              <span class="card-body float-left"><button type="button" class="px-4 btn btn-primary">Saiba
+                  mais</button></span>
+              <span class="card-body float-right blog-post-preco">R$195</span>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card-body card_hotel shadow-sm p-3 mb-5 bg-body">
+          <img src="./images/wz-hotel-jardins.jpg" class="py-2 card-img-top" alt="Fachada WZ Hotel Jardins">
+          <div class="clearfix">
+            <span class="py-2 float-left">
+              <h5 class="card-title">WZ Hotel Jardins</h5>
+            </span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right border"><i
+                class="far fa-bookmark"></i></span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right"><i class="far fa-heart"></i></span>
+          </div>
+          <p class="card-text">4,6 <i class="estrela fas fa-star"></i><a class="card-link" href="#"> (5.034
+              avaliações)</a>
+            <p class="blog-post-text"><i class="fas fa-bed"></i> 3 estrelas</p>
+            <p class="blog-post-text"><i class="fas fa-wifi"></i> wifi gratuito</p>
+            <p class="blog-post-text"><i class="fas fa-swimmer"></i> piscina coberta</p>
+            <p class="clearfix">
+              <span class="card-body float-left"><button type="button" class="px-4 btn btn-primary">Saiba
+                  mais</button></span>
+              <span class="card-body float-right blog-post-preco">R$200</span>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card-body card_hotel shadow-sm p-3 mb-5 bg-body">
+          <img src="./images/hilton-sao-paulo-morumbi.jpg" class="py-2 card-img-top"
+            alt="Fachada do hotel Hilton Morumbi">
+          <div class="clearfix">
+            <span class="py-2 float-left">
+              <h5 class="card-title">Hilton Morumbi</h5>
+            </span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right border"><i
+                class="far fa-bookmark"></i></span>
+            <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right"><i class="far fa-heart"></i></span>
+          </div>
+          <p class="card-text">4,6 <i class="estrela fas fa-star"></i><a class="card-link" href="#"> (5.034
+              avaliações)</a>
+            <p class="blog-post-text"><i class="fas fa-bed"></i> 3 estrelas</p>
+            <p class="blog-post-text"><i class="fas fa-wifi"></i> wifi gratuito</p>
+            <p class="blog-post-text"><i class="fas fa-swimmer"></i> piscina coberta</p>
+            <p class="clearfix">
+              <span class="card-body float-left"><button type="button" class="px-4 btn btn-primary">Saiba
+                  mais</button></span>
+              <span class="card-body float-right blog-post-preco">R$416</span>
+            </p>
+        </div>
+      </div>
+      <!--Início da section 3-->
+      <div class="container my-3">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card-body card_hotel shadow-sm p-3 mb-5 bg-body">
+              <img src="./images/la-residence-paulista.jpg" class="py-2 card-img-top"
+                alt="Fachada do hotel La Residence Paulista">
+              <div class="clearfix">
+                <span class="py-2 float-left">
+                  <h5 class="card-title">La Residence</h5>
+                </span>
+                <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right border"><i
+                    class="far fa-bookmark"></i></span>
+                <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right"><i
+                    class="far fa-heart"></i></span>
+              </div>
+              <p class="card-text">4,6 <i class="estrela fas fa-star"></i><a class="card-link" href="http://"> (5.034
+                  avaliações)</a>
+                <p class="blog-post-text"><i class="fas fa-bed"></i> 3 estrelas</p>
+                <p class="blog-post-text"><i class="fas fa-wifi"></i> wifi gratuito</p>
+                <p class="blog-post-text"><i class="fas fa-swimmer"></i> piscina coberta</p>
+                <p class="clearfix">
+                  <span class="card-body float-left"><button type="button" class="px-4 btn btn-primary">Saiba
+                      mais</button></span>
+                  <span class="card-body float-right blog-post-preco">R$516</span>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card-body card_hotel shadow-sm p-3 mb-5 bg-body">
+              <img src="./images/ibis-styles-barra-funda.jpg" class="py-2 card-img-top"
+                alt="Fachada do Ibis Styles Barra Funda">
+              <div class="clearfix">
+                <span class="py-2 float-left">
+                  <h5 class="card-title">Ibis Barra Funda</h5>
+                </span>
+                <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right border"><i
+                    class="far fa-bookmark"></i></span>
+                <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right"><i
+                    class="far fa-heart"></i></span>
+              </div>
+              <p class="card-text">4,6 <i class="estrela fas fa-star"></i><a class="card-link" href="#"> (5.034
+                  avaliações)</a>
+                <p class="blog-post-text"><i class="fas fa-bed"></i> 3 estrelas</p>
+                <p class="blog-post-text"><i class="fas fa-wifi"></i> wifi gratuito</p>
+                <p class="blog-post-text"><i class="fas fa-swimmer"></i> piscina coberta</p>
+                <p class="clearfix">
+                  <span class="card-body float-left"><button type="button" class="px-4 btn btn-primary">Saiba
+                      mais</button></span>
+                  <span class="card-body float-right blog-post-preco">R$160</span>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card-body card_hotel shadow-sm p-3 mb-5 bg-body">
+              <img src="./images/fasano-sao-paulo.jpg" class="py-2 card-img-top" alt="Hotel Fasano São Paulo">
+              <div class="clearfix">
+                <span class="py-2 float-left">
+                  <h5 class="card-title">Fasano São Paulo</h5>
+                </span>
+                <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right border"><i
+                    class="far fa-bookmark"></i></span>
+                <span class=" btn-outline-secondary circulo py-2 px-3 mx-1 float-right"><i
+                    class="far fa-heart"></i></span>
+              </div>
+              <p class="card-text">4,6 <i class="estrela fas fa-star"></i><a class="card-link" href="#"> (5.034
+                  avaliações)</a>
+                <p class="blog-post-text"><i class="fas fa-bed"></i> 3 estrelas</p>
+                <p class="blog-post-text"><i class="fas fa-wifi"></i> wifi gratuito</p>
+                <p class="blog-post-text"><i class="fas fa-swimmer"></i> piscina coberta</p>
+                <p class="clearfix">
+                  <span class="card-body float-left"><button type="button" class="px-4 btn btn-primary">Saiba
+                      mais</button></span>
+                  <span class="card-body float-right blog-post-preco">R$1.830</span>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Início de Botões de anterior e próximo-->
+  <div class="container py-1 text-center">
+    <div class="row align-items-start">
+      <div class="col">
+        <span class="btn btn-outline-primary mx-3"><i class="fas fa-chevron-left"></i> Anterior</span>
+        <span class="btn btn-outline-primary">Próximo <i class="fas fa-chevron-right"></i></span>
+      </div>
+    </div>
+  </div>
+  <!--Fim dos Botões de anterior e próximo-->
+  <!--Fim do conteudo principal-->
+  </main>
+  <!--Início do rodapé-->
+  <footer class="bg-dark text-white my-4 py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <img src="./images/logo-traveller-pequeno.svg" class="pb-3" alt="Logo do Treveller" class="logo_rodape">
+          <p class="p_footer">O Traveller é uma plataforma de turismo que oferece conteúdos sobre
+            acomodações, restaurantes, pontos turísticos e passagens. Aqui, você consegue planejar
+            melhor a sua viagem, conhecer as experiências de outros viajantes e fazer reservas com os
+            melhores preços.</p>
+        </div>
+        <div class="my-2 col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <h6><strong>Sobre o Traveller</strong></h6>
+          <ul class="list-unstyled">
+            <li><a class="text-white" href="#">Quem somos</a></li>
+            <li><a class="text-white" href="#">Privacidade</a></li>
+            <li><a class="text-white" href="#">Contato</a></li>
+            <li><a class="text-white" href="#">Anuncie</a></li>
+            <li><a class="text-white" href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="my-2 col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <h6><strong>Para você</strong></h6>
+          <ul class="list-unstyled">
+            <li><a class="text-white" href="#">Avalie</a></li>
+            <li><a class="text-white" href="#">Lives</a></li>
+            <li><a class="text-white" href="#">Podcast</a></li>
+            <li><a class="text-white" href="#">Na Mídia</a></li>
+            <li><a class="text-white" href="#">Seja um parceiro</a></li>
+          </ul>
+        </div>
+        <div class="my-2 col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <h6><strong>Siga-nos</strong></h6>
+          <a href="#"><i class=" pr-3 text-white fab fa-facebook-f"></i></a>
+          <a href="#"><i class=" pr-3 text-white fab fa-instagram"></i></a>
+          <a href="#"><i class=" pr-3 text-white fab fa-twitter"></i></a>
+          <a href="#"><i class=" pr-3 text-white fab fa-youtube"></i></a>
+          <a href="#"><i class=" pr-3 text-white fab fa-spotify"></i></a>
+        </div>
+      </div>
+  </footer>
+  <div class="container bg-light">
+    <p class="pt-2 text-muted small">© 2021 Traveller - Todos os direitos reservados</p>
+  </div>
+  <!--Fim do rodapé-->
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+  </script>
+  <script src="./js/script.js"></script>
+</body>
+</html>
